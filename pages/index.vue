@@ -1,8 +1,5 @@
 <template>
-  <v-layout
-    justify-center
-    align-center
-  >
+  <v-layout justify-center align-center>
     <v-flex>
       <VVHeroImageContainer class="text-center header-image" :image="HEADER_IMAGE">
         <div class="content">
@@ -16,24 +13,6 @@
         <VVCtaButton link :href="REGISTRATION_URL" target="_blank">Register</VVCtaButton>
         <VVCtaButton link :href="CFP_URL" target="_blank">Submit a Talk</VVCtaButton>
         <VVCtaButton link href="#faq">FAQ</VVCtaButton>
-      </section>
-      <section id="organizers">
-        <h1>Conference Organizers</h1>
-      </section>
-      <section id="keynote">
-        <h1>Keynote Speakers</h1>
-      </section>
-      <section id="schedule">
-        <h1>Schedule</h1>
-      </section>
-      <section id="venue">
-        <h1>Venue</h1>
-      </section>
-      <section id="faq">
-        <h1>FAQ</h1>
-      </section>
-      <section id="contact">
-        <h1>More questions? Contact us!</h1>
       </section>
     </v-flex>
   </v-layout>
@@ -63,7 +42,7 @@ export default {
   .header-image {
     width: 100%;
     height: 60vh;
-    color: white;
+    color: #fff;
   }
 
   .content {
@@ -74,6 +53,9 @@ export default {
     $width: 150px;
 
     width: $width;
+
+    // Offset the fox logo, because the bottom of the Vue triangle should be centered
+    // and the fox tail throws it off by 20%
     margin-left: -#{$width * .2};
   }
 
@@ -87,18 +69,16 @@ export default {
   }
 
   .vv-heading.where-header {
-    margin-bottom: .5rem;
     font-size: 4.2rem;
-
   }
 
   .vv-subheading.when-header {
-    margin-bottom: 25px;
     font-size: 2.1rem;
   }
 
   .vv-heading, .vv-subheading {
     &.when-header, &.where-header {
+      margin-bottom: 25px;
       font-family: "Futura-CondensedMedium", "Helvetica Neue", Arial, sans-serif;
       font-weight: 400;
       text-transform: uppercase;
