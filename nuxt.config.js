@@ -5,17 +5,70 @@ export default {
   /*
   ** Headers of the page
   */
-  head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+  title: 'Vue Vixens Day US 2020 - A conference presented by Foxy People 🦊',
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'Vue Vixens Day US 2020 - A conference presented by Foxy People 🦊',
+    },
+    { name: 'msapplication-TileColor', content: '#2b5797' },
+    { name: 'msapplication-config', content: '/icons/browserconfig.xml' },
+    { name: 'theme-color', content: '#fff' },
+  ],
+  link: [
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/icons/apple-touch-icon.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/icons/favicon-32x32.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: '/icons/favicon-16x16.png',
+    },
+    { rel: 'icon', type: 'manifest', href: '/icons/site.webmanifest' },
+    {
+      rel: 'mask-icon',
+      href: '/icons/safari-pinned-tab.svg',
+      color: '#5bbad5',
+    },
+    { rel: 'shortcut icon', href: '/icons/favicon.ico' },
+    { rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.ico' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css?family=Lato',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://db.onlinewebfonts.com/c/da950f2527dc01bebcbedd536e38c145?family=Futura',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://use.fontawesome.com/releases/v5.0.10/css/all.css',
+      integrity: 'sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg',
+      crossorigin: 'anonymous',
+    },
+  ],
+  generate: {
+    fallback: true
   },
   /*
   ** Customize the progress-bar color
@@ -24,12 +77,12 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ['~/assets/css/main.scss'],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/i18n.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -55,14 +108,17 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/css/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+        light: {
+          primary: '#34485d',
+          secondary: '#ec7250',
+          accent: '#3fb783',
+          // primary: colors.blue.darken2,
+          // accent: colors.grey.darken3,
+          // secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
@@ -75,6 +131,7 @@ export default {
   ** Build configuration
   */
   build: {
+    vendor: ['vue-i18n'],
     /*
     ** You can extend webpack config here
     */

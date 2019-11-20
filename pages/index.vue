@@ -1,92 +1,99 @@
 <template>
   <v-layout
-    column
     justify-center
     align-center
   >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
+    <v-flex>
+      <VVHeroImageContainer class="text-center header-image" :image="image">
+        <div class="content">
+          <VVLogo class="homepage-logo"/>
+          <h1 class="vv-heading where-header">Austin, TX</h1>
+          <h1 class="vv-subheading when-header">March 5, 2020</h1>
+          <h2 class="vv-subtitle" style="margin-top: 10px;">A one-day conference presented by foxy people who identify as women.</h2>
+        </div>
+      </VVHeroImageContainer>
+      <div class="vv-cta-buttons">
+        <VVCtaButton>Register</VVCtaButton>
+        <VVCtaButton>Submit a Talk</VVCtaButton>
+        <VVCtaButton>Sponsor</VVCtaButton>
+        <VVCtaButton>FAQ</VVCtaButton>
       </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import VVHeroImageContainer from '../components/HeroImageContainer';
+import VVCtaButton from '../components/CtaButton';
+import VVLogo from '../components/Logo';
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    VVHeroImageContainer,
+    VVCtaButton,
+    VVLogo,
+  },
+  computed: {
+    image() {
+      return require('../assets/images/austin-city-darken.jpeg');
+    }
   }
 }
 </script>
+
+<style scoped lang="scss">
+  .header-image {
+    width: 100%;
+    height: 60vh;
+    color: white;
+  }
+
+  .content {
+    padding-top: 2vh;
+  }
+
+  .homepage-logo {
+    $width: 150px;
+
+    width: $width;
+    margin-left: -#{$width * .2};
+  }
+
+  .vv-subtitle {
+    font-family: "Futura-MediumItalic", "Helvetica Neue", Arial, sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    max-width: 390px;
+    font-size: 1.2rem;
+    margin: 20px auto 0;
+  }
+
+  .vv-heading.where-header {
+    margin-bottom: .5rem;
+    font-size: 4.2rem;
+
+  }
+
+  .vv-subheading.when-header {
+    margin-bottom: 25px;
+    font-size: 2.1rem;
+  }
+
+  .vv-heading, .vv-subheading {
+    &.when-header, &.where-header {
+      font-family: "Futura-CondensedMedium", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .vv-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 150px;
+    max-width: 830px;
+    margin: -80px auto 0;
+  }
+</style>

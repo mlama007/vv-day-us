@@ -1,44 +1,44 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-  </v-app>
+  <v-layout class="vv-container" fill-height>
+    <v-container class="indexed" fill-height>
+      <v-card height="100%">
+        <img src="~/assets/images/cry-fox.jpeg" alt="Fox image`">
+        <v-card-title>
+          <h3 class="vv-subheading font-lato text-xs-center">{{ $t("title") }}</h3>
+          <p class="text-xs-center vv-content title">{{ $t("subtitle") }}</p>
+        </v-card-title>
+      </v-card>
+    </v-container>
+  </v-layout>
 </template>
 
 <script>
+import messages from '../assets/translations/404';
 export default {
-  layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null
-    }
-  },
-  head () {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-    return {
-      title
-    }
-  },
-  data () {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
-    }
+  props: ['error'],
+  layout: 'default',
+  i18n: {
+    messages
   }
-}
+};
 </script>
 
-<style scoped>
-h1 {
-  font-size: 20px;
-}
+<style scoped lang="scss">
+  img {
+    width: 100%;
+  }
+
+  .vv-container {
+    padding-bottom: 0;
+  }
+
+  .container.indexed {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  h3,
+  p {
+    width: 100%;
+  }
 </style>
