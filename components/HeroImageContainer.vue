@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative">
+  <div style="position: relative; pointer-events: none;">
     <!-- transparent hero image so you can darken/lighten the image for IE11 support -->
     <div class="hero-image" :style="{ backgroundImage }"/>
     <!-- @slot The content to display on top of the Image -->

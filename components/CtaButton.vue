@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="secondary" class="vv-button" raised x-large><slot></slot></v-btn>
+  <v-btn v-bind="$attrs" color="secondary" class="vv-button" raised x-large link><slot></slot></v-btn>
 </template>
 
 <style scoped lang="scss">

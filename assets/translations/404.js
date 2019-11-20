@@ -1,7 +1,7 @@
 export default {
   en: {
     title: 'Hey!',
-    subtitle: `Looks like you find this page by error. Please go back.`
+    subtitle: `It looks like you found this page in error. Please go back.`
   },
   es: {
     title: 'Hey!',
@@ -16,7 +16,7 @@ export default {
     subtitle: `Parece que você chegou aqui por engano. Está na hora de voltar.`
   },
   fr: {
-    title: 'Hey !',
+    title: 'Hey!',
     subtitle: 'Il semblerait que vous ayez trouvé cette page par erreur. Retournez en arrière.'
   }
 }

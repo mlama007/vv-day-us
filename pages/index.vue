@@ -4,7 +4,7 @@
     align-center
   >
     <v-flex>
-      <VVHeroImageContainer class="text-center header-image" :image="image">
+      <VVHeroImageContainer class="text-center header-image" :image="HEADER_IMAGE">
         <div class="content">
           <VVLogo class="homepage-logo"/>
           <h1 class="vv-heading where-header">Austin, TX</h1>
@@ -12,12 +12,29 @@
           <h2 class="vv-subtitle" style="margin-top: 10px;">A one-day conference presented by foxy people who identify as women.</h2>
         </div>
       </VVHeroImageContainer>
-      <div class="vv-cta-buttons">
-        <VVCtaButton>Register</VVCtaButton>
-        <VVCtaButton>Submit a Talk</VVCtaButton>
-        <VVCtaButton>Sponsor</VVCtaButton>
-        <VVCtaButton>FAQ</VVCtaButton>
-      </div>
+      <section class="vv-cta-buttons">
+        <VVCtaButton link :href="REGISTRATION_URL" target="_blank">Register</VVCtaButton>
+        <VVCtaButton link :href="CFP_URL" target="_blank">Submit a Talk</VVCtaButton>
+        <VVCtaButton link href="#faq">FAQ</VVCtaButton>
+      </section>
+      <section id="organizers">
+        <h1>Conference Organizers</h1>
+      </section>
+      <section id="keynote">
+        <h1>Keynote Speakers</h1>
+      </section>
+      <section id="schedule">
+        <h1>Schedule</h1>
+      </section>
+      <section id="venue">
+        <h1>Venue</h1>
+      </section>
+      <section id="faq">
+        <h1>FAQ</h1>
+      </section>
+      <section id="contact">
+        <h1>More questions? Contact us!</h1>
+      </section>
     </v-flex>
   </v-layout>
 </template>
@@ -26,6 +43,7 @@
 import VVHeroImageContainer from '../components/HeroImageContainer';
 import VVCtaButton from '../components/CtaButton';
 import VVLogo from '../components/Logo';
+import { REGISTRATION_URL, CFP_URL, HEADER_IMAGE } from '../constants';
 
 export default {
   components: {
@@ -34,10 +52,10 @@ export default {
     VVLogo,
   },
   computed: {
-    image() {
-      return require('../assets/images/austin-city-darken.jpeg');
-    }
-  }
+    HEADER_IMAGE: () => HEADER_IMAGE,
+    REGISTRATION_URL: () => REGISTRATION_URL,
+    CFP_URL: () => CFP_URL,
+  },
 }
 </script>
 
