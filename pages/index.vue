@@ -14,6 +14,11 @@
         <VVCtaButton link :href="CFP_URL" target="_blank">Submit a Talk</VVCtaButton>
         <VVCtaButton link href="#faq">FAQ</VVCtaButton>
       </section>
+      <section class="vv-tweets-embed">
+        <h1 :style="{ color: headerColor }">The excitement is building...</h1>
+        <h2 :style="{ color: headerColor }">Registration is not open yet. Stay tuned!</h2>
+        <a class="twitter-timeline" href="https://twitter.com/VueVixens?ref_src=twsrc%5Etfw">Vue Vixens Day US Tweets - Curated tweets by VueVixensDay</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </section>
     </v-flex>
   </v-layout>
 </template>
@@ -34,6 +39,9 @@ export default {
     HEADER_IMAGE: () => HEADER_IMAGE,
     REGISTRATION_URL: () => REGISTRATION_URL,
     CFP_URL: () => CFP_URL,
+
+    // TODO pull from $vuetify theme, or, even better, put in SCSS from Vuetify
+    headerColor: () => { return '#34485d' }
   },
 }
 </script>
@@ -93,5 +101,23 @@ export default {
     height: 150px;
     max-width: 830px;
     margin: -80px auto 0;
+  }
+
+  .vv-tweets-embed {
+    max-width: 90vw;
+    margin: 20px auto 0;
+
+    @media(max-width: 800px) {}
+
+    @media(min-width: 1200px) {
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
   }
 </style>
