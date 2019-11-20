@@ -17,7 +17,7 @@
       <section class="vv-tweets-embed">
         <h1 :style="{ color: headerColor }">The excitement is building...</h1>
         <h2 :style="{ color: headerColor }">Registration is not open yet. Stay tuned!</h2>
-        <a class="twitter-timeline" href="https://twitter.com/VueVixens?ref_src=twsrc%5Etfw">Vue Vixens Day US Tweets - Curated tweets by VueVixensDay</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <VVTweetTimeline profile="VueVixens"/>
       </section>
     </v-flex>
   </v-layout>
@@ -27,6 +27,7 @@
 import VVHeroImageContainer from '../components/HeroImageContainer';
 import VVCtaButton from '../components/CtaButton';
 import VVLogo from '../components/Logo';
+import VVTweetTimeline from '../components/TweetTimeline';
 import { REGISTRATION_URL, CFP_URL, HEADER_IMAGE } from '../constants';
 
 export default {
@@ -34,14 +35,15 @@ export default {
     VVHeroImageContainer,
     VVCtaButton,
     VVLogo,
+    VVTweetTimeline
   },
   computed: {
-    HEADER_IMAGE: () => HEADER_IMAGE,
-    REGISTRATION_URL: () => REGISTRATION_URL,
-    CFP_URL: () => CFP_URL,
+    HEADER_IMAGE() { return HEADER_IMAGE },
+    REGISTRATION_URL() { return REGISTRATION_URL },
+    CFP_URL() { return CFP_URL },
 
     // TODO pull from $vuetify theme, or, even better, put in SCSS from Vuetify
-    headerColor: () => { return '#34485d' }
+    headerColor() { return '#34485d' }
   },
 }
 </script>
