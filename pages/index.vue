@@ -86,7 +86,7 @@ export default {
     @media(max-width: 800px) {}
 
     @media(min-width: 1200px) {
-      max-width: 800px;
+      max-width: 880px;
     }
 
     & > section:not(:first-child) {

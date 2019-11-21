@@ -1,11 +1,11 @@
 <template>
   <section>
     <slot name="header"/>
-    <v-row cols="6" md="2" justify="center">
+    <v-row cols="6" md="2" lg="4" justify="center">
       <v-col
-        v-for="(presenter, idx) in presenters"
+        v-for="presenter in presenters"
         :key="presenter.name"
-        :style="styleFor(idx)"
+        style="max-width: 220px"
         >
         <VVPresenterCard :presenter="presenter"/>
       </v-col>
@@ -19,14 +19,8 @@ import VVPresenterCard from './PresenterCard';
 
 export default {
   components: { VVPresenterCard },
-  methods: {
-    styleFor(idx) {
-      let align = idx === this.presenters.length - 1 ? 'flex-start' : 'center';
-      return ` justify-self: ${align}; margin: 20px auto; max-width: 50%`;
-    }
-  },
   computed: {
-    presenters() { return PRESENTERS_DATA; }
+    presenters() { return PRESENTERS_DATA || []; }
   }
 }
 </script>
