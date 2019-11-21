@@ -10,7 +10,7 @@ export const HEADER_IMAGE = require('./assets/images/austin-city-darken.jpeg');
 export const PRESENTERS_DATA = [
   {
     name: `Sarah Drasner`,
-    talkTitle: `"The Art of Code Comments"`,
+    talkTitle: `"Keynote: The Art of Code Comments"`,
     photo: require('./assets/images/speakers/sarah-drasner_400x400.jpg'),
     twitterUrl: `https://twitter.com/sarah_edo`,
     keynote: true,
@@ -23,12 +23,12 @@ export const PRESENTERS_DATA = [
   },
   {
     name: `Maria Lamardo`,
-    talkTitle: `"The Humanist's Guide to Deep Learning"`,
+    talkTitle: `"My Path to Tech"`,
     photo: require('./assets/images/speakers/maria-lamardo_400x400.jpg'),
     twitterUrl: `https://twitter.com/MariaLamardo`,
   },
   {
-    name: `Diana Rodriguez-Manrique`,
+    name: `Diana Rodriguez`,
     talkTitle: `"Fostering success in tech: The DevOps culture approach"`,
     photo: require('./assets/images/speakers/diana-rodriguez-manrique_400x400.jpg'),
     twitterUrl: `https://twitter.com/cotufa82`,

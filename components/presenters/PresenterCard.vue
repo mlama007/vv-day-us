@@ -1,8 +1,8 @@
 <template>
   <v-card @click="openPresenterLink"
-          max-width="220px">
+          max-width="300px" align="center">
     <v-img :src="presenter.photo" :alt="`Photo of {{ presenter.name }}`"></v-img>
-    <v-card-title>{{ presenter.name }}</v-card-title>
+    <p class="title">{{ presenter.name }}</p>
     <v-card-subtitle>{{ presenter.talkTitle }}</v-card-subtitle>
   </v-card>
 </template>
@@ -17,3 +17,9 @@
     },
   }
 </script>
+
+<style scoped>
+.title {
+  text-align:center
+}
+</style>

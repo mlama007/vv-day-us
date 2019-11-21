@@ -5,7 +5,7 @@
       <v-col
         v-for="presenter in presenters"
         :key="presenter.name"
-        style="max-width: 220px"
+        style="max-width: 300px" text-align="center" justify="center"
         >
         <VVPresenterCard :presenter="presenter"/>
       </v-col>
