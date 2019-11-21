@@ -1,0 +1,19 @@
+<template>
+  <v-card @click="openPresenterLink"
+          max-width="220px">
+    <v-img :src="presenter.photo" :alt="`Photo of {{ presenter.name }}`"></v-img>
+    <v-card-title>{{ presenter.name }}</v-card-title>
+    <v-card-subtitle>{{ presenter.talkTitle }}</v-card-subtitle>
+  </v-card>
+</template>
+
+<script>
+  export default {
+    methods: {
+      openPresenterLink() { window.open(this.presenter.twitterUrl, '_blank'); }
+    },
+    props: {
+      presenter: { type: Object, required: true }
+    },
+  }
+</script>

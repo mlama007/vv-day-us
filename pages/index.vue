@@ -1,6 +1,6 @@
 <template>
-  <v-layout justify-center align-center>
-    <v-flex>
+  <v-row no-gutters justify-center align-center>
+    <v-col no-gutters>
       <VVHeroImageContainer class="text-center header-image" :image="HEADER_IMAGE">
         <div class="content">
           <VVLogo class="homepage-logo"/>
@@ -14,19 +14,28 @@
         <VVCtaButton link :href="CFP_URL" target="_blank">Submit a Talk</VVCtaButton>
         <VVCtaButton link href="#faq">FAQ</VVCtaButton>
       </section>
-      <section class="vv-tweets-embed">
-        <h1 :style="{ color: headerColor }">The excitement is building...</h1>
-        <h2 :style="{ color: headerColor }">Registration is not open yet. Stay tuned!</h2>
-        <VVTweetTimeline profile="VueVixens"/>
-      </section>
-    </v-flex>
-  </v-layout>
+      <v-col cols="8" class="content-container">
+        <VVPresenters>
+          <template #header>
+            <h1>Meet our Presenters</h1>
+          </template>
+        </VVPresenters>
+        <VVTweetTimeline profile="VueVixens">
+          <template #header>
+            <h1>The excitement is building...</h1>
+            <h2>Registration is not open yet. Stay tuned!</h2>
+          </template>
+        </VVTweetTimeline>
+      </v-col>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 import VVHeroImageContainer from '../components/HeroImageContainer';
 import VVCtaButton from '../components/CtaButton';
 import VVLogo from '../components/Logo';
+import VVPresenters from '../components/presenters/Presenters';
 import VVTweetTimeline from '../components/TweetTimeline';
 import { REGISTRATION_URL, CFP_URL, HEADER_IMAGE } from '../constants';
 
@@ -35,28 +44,54 @@ export default {
     VVHeroImageContainer,
     VVCtaButton,
     VVLogo,
-    VVTweetTimeline
+    VVTweetTimeline,
+    VVPresenters
   },
   computed: {
     HEADER_IMAGE() { return HEADER_IMAGE },
     REGISTRATION_URL() { return REGISTRATION_URL },
     CFP_URL() { return CFP_URL },
-
-    // TODO pull from $vuetify theme, or, even better, put in SCSS from Vuetify
-    headerColor() { return '#34485d' }
   },
 }
 </script>
 
 <style scoped lang="scss">
+  h1 { font-size: 2.7rem; }
+  h2 { font-size: 1.2rem; }
+
+  h1, h2 {
+    font-weight: 500;
+    font-family: "Futura-CondensedMedium", "Helvetica Neue", Arial, sans-serif !important;
+    color: #34485d;
+    text-align: center;
+  }
+
+
   .header-image {
     width: 100%;
     height: 60vh;
-    color: #fff;
+
+    h1, h2, h3, h4, h5, h6, span, div {
+      color: #fff;
+    }
   }
 
   .content {
     padding-top: 2vh;
+  }
+
+  .content-container {
+    max-width: 90vw;
+    margin: 20px auto 0;
+    @media(max-width: 800px) {}
+
+    @media(min-width: 1200px) {
+      max-width: 800px;
+    }
+
+    & > section:not(:first-child) {
+      margin: 20px auto 0;
+    }
   }
 
   .homepage-logo {
@@ -103,23 +138,5 @@ export default {
     height: 150px;
     max-width: 830px;
     margin: -80px auto 0;
-  }
-
-  .vv-tweets-embed {
-    max-width: 90vw;
-    margin: 20px auto 0;
-
-    @media(max-width: 800px) {}
-
-    @media(min-width: 1200px) {
-      max-width: 800px;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-    h2 {
-      font-size: 1.2rem;
-    }
   }
 </style>
