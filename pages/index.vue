@@ -11,8 +11,9 @@
       </VVHeroImageContainer>
       <section class="vv-cta-buttons">
         <VVCtaButton link :href="REGISTRATION_URL" target="_blank">Register</VVCtaButton>
-        <VVCtaButton link :href="CFP_URL" target="_blank">Submit a Talk</VVCtaButton>
-        <VVCtaButton link href="#faq">FAQ</VVCtaButton>
+        <span style="width: 60px;"></span>
+        <VVCtaButton v-if="false" link :href="CFP_URL" target="_blank">Give a Lightning Talk</VVCtaButton>
+        <VVCtaButton link :href="FAQ_URL">FAQ</VVCtaButton>
       </section>
       <v-col cols="8" class="content-container">
         <VVPresenters>
@@ -23,7 +24,7 @@
         <VVTweetTimeline profile="VueVixens">
           <template #header>
             <h1>The excitement is building...</h1>
-            <h2>Registration is not open yet. Stay tuned!</h2>
+            <h2>See what people are saying!</h2>
           </template>
         </VVTweetTimeline>
       </v-col>
@@ -37,7 +38,7 @@ import VVCtaButton from '../components/CtaButton';
 import VVLogo from '../components/Logo';
 import VVPresenters from '../components/presenters/Presenters';
 import VVTweetTimeline from '../components/TweetTimeline';
-import { REGISTRATION_URL, CFP_URL, HEADER_IMAGE } from '../constants';
+import { REGISTRATION_URL, CFP_URL, FAQ_URL, HEADER_IMAGE } from '../constants';
 
 export default {
   components: {
@@ -51,6 +52,7 @@ export default {
     HEADER_IMAGE() { return HEADER_IMAGE },
     REGISTRATION_URL() { return REGISTRATION_URL },
     CFP_URL() { return CFP_URL },
+    FAQ_URL() { return FAQ_URL },
   },
 }
 </script>
@@ -70,6 +72,7 @@ export default {
   .header-image {
     width: 100%;
     height: 60vh;
+    min-height: 490px;
 
     h1, h2, h3, h4, h5, h6, span, div {
       color: #fff;
@@ -133,7 +136,7 @@ export default {
   .vv-cta-buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     height: 150px;
     max-width: 830px;

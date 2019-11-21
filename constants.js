@@ -2,8 +2,9 @@
 // but none of this stuff gets mutated,
 // so I'm fine with it being in this file (for now)
 
-export const REGISTRATION_URL = '';
+export const REGISTRATION_URL = 'https://ti.to/frontendfoxes/vvdayus/with/zutegidximo';
 export const CFP_URL = '';
+export const FAQ_URL = 'https://www.vuevixens.org/about';
 export const HEADER_IMAGE = require('./assets/images/austin-city-darken.jpeg');
 
 export const PRESENTERS_DATA = [
