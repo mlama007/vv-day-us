@@ -23,7 +23,7 @@ export const PRESENTERS_DATA = [
   },
   {
     name: `Maria Lamardo`,
-    talkTitle: `"My Path to Tech"`,
+    talkTitle: `"When Life Takes Your Scrubs; _npm run build_"`,
     photo: require('./assets/images/speakers/maria-lamardo_400x400.jpg'),
     twitterUrl: `https://twitter.com/MariaLamardo`,
   },
