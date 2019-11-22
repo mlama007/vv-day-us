@@ -12,7 +12,9 @@
       <section class="vv-cta-buttons">
         <VVCtaButton link :href="REGISTRATION_URL" target="_blank">Register</VVCtaButton>
         <span style="width: 60px;"></span>
-        <VVCtaButton v-if="false" link :href="CFP_URL" target="_blank">Give a Lightning Talk</VVCtaButton>
+        <VVCtaButton link :href="CFP_URL" target="_blank">Give a Lightning Talk</VVCtaButton>
+        <span style="width: 60px;"></span>
+      
         <VVCtaButton link :href="FAQ_URL">FAQ</VVCtaButton>
       </section>
       <v-col cols="8" class="content-container">
@@ -57,9 +59,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   h1 { font-size: 2.7rem; }
-  h2 { font-size: 1.2rem; }
+  h2 { font-size: 2.0rem; }
 
   h1, h2 {
     font-weight: 500;
